@@ -12,11 +12,15 @@ spring:
           uri: lb://PRODUCT-SERVICE
           predicates:
             - Path=/api/product/**
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payment/**
 eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8762/eureka
+      defaultZone: http://localhost:8761/eureka
   instance:
     hostname: localhost
